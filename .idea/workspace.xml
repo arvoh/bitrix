@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b5ec73-1fce-4989-ba21-a564119e841f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/order_view.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/bitrix.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buh_report.py" beforeDir="false" afterPath="$PROJECT_DIR$/buh_report.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -27,10 +36,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/buh_report.py" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/order_view.py" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
   </component>
-  <component name="RunManager" selected="Python.buh_report">
+  <component name="RunManager" selected="Python.order_view">
     <configuration name="buh_report" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="bitrix" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -44,6 +53,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/buh_report.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="order_view" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="bitrix" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\d.romanenko\AppData\Local\Programs\Python\Python38\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/order_view.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -76,6 +106,7 @@
     <list>
       <item itemvalue="Python.orders" />
       <item itemvalue="Python.buh_report" />
+      <item itemvalue="Python.order_view" />
     </list>
   </component>
   <component name="ServiceViewManager">
@@ -91,7 +122,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\d.romanenko\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -108,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592370731708</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Second create">
+      <created>1592371225635</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1592371225635</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -138,42 +176,42 @@
     <option name="LAST_COMMIT_MESSAGE" value="Second create" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592369032979">
+    <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592380572643">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592369032979" />
-    <state x="614" y="95" key="CommitChangelistDialog2" timestamp="1592370728893">
+    <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380572643" />
+    <state x="614" y="95" key="CommitChangelistDialog2" timestamp="1592371223503">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="614" y="95" key="CommitChangelistDialog2/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592370728893" />
+    <state x="614" y="95" key="CommitChangelistDialog2/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592371223503" />
     <state x="92" y="92" width="1736" height="815" key="DiffContextDialog" timestamp="1592371194554">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="92" y="92" width="1736" height="815" key="DiffContextDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592371194554" />
-    <state x="740" y="255" key="FileChooserDialogImpl" timestamp="1592370125450">
+    <state x="740" y="255" key="FileChooserDialogImpl" timestamp="1592380571392">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="740" y="255" key="FileChooserDialogImpl/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592370125450" />
-    <state width="1899" height="268" key="GridCell.Tab.0.bottom" timestamp="1592370242229">
+    <state x="740" y="255" key="FileChooserDialogImpl/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380571392" />
+    <state width="1899" height="268" key="GridCell.Tab.0.bottom" timestamp="1592380576650">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.bottom/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592370242229" />
-    <state width="1899" height="268" key="GridCell.Tab.0.center" timestamp="1592370242229">
+    <state width="1899" height="268" key="GridCell.Tab.0.bottom/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380576650" />
+    <state width="1899" height="268" key="GridCell.Tab.0.center" timestamp="1592380576650">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.center/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592370242229" />
-    <state width="1899" height="268" key="GridCell.Tab.0.left" timestamp="1592370242229">
+    <state width="1899" height="268" key="GridCell.Tab.0.center/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380576650" />
+    <state width="1899" height="268" key="GridCell.Tab.0.left" timestamp="1592380576650">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.left/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592370242229" />
-    <state width="1899" height="268" key="GridCell.Tab.0.right" timestamp="1592370242229">
+    <state width="1899" height="268" key="GridCell.Tab.0.left/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380576650" />
+    <state width="1899" height="268" key="GridCell.Tab.0.right" timestamp="1592380576650">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.right/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592370242229" />
-    <state x="461" y="143" key="SettingsEditor" timestamp="1592370127312">
+    <state width="1899" height="268" key="GridCell.Tab.0.right/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380576650" />
+    <state x="461" y="143" key="SettingsEditor" timestamp="1592380886798">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="461" y="143" key="SettingsEditor/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592370127312" />
+    <state x="461" y="143" key="SettingsEditor/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380886798" />
     <state x="92" y="92" width="1736" height="815" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592369445497">
       <screen x="0" y="0" width="1920" height="999" />
     </state>

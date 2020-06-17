@@ -154,7 +154,7 @@ class Order:
         # Получение товаров из промежуточной БД
         sql = 'SELECT NAME,PRICE, QUANTITY, PRODUCT_SUM, NDS, ISCHANGE, commission, comissioner_phone,comissioner_name, comissioner_inn  ' \
               'FROM u0752174_delfin_exchange.oc_order_products_starta where quantity > 0 and order_id = %d' % self.order_id
-        print(sql)
+#        print(sql)
         cursor.execute(sql)
         res = cursor.fetchall()
         self.items = []
