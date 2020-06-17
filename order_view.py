@@ -7,9 +7,12 @@ while True:
     try:
         a = bitrix.Order(order_id)
     except Exception as e:
-        print(e)
+        print('Ошибка\n', e)
         continue
     print('Заказ № ',order_id)
-    print('Оплата ', a.total)
-    print('Сумма по банку ', a.payment.finish_sum)
+    print('Сумма из ДиФ ', a.total)
+    print('Сумма по завершения ', a.payment.finish_sum)
+    print('Сумма по холдирования ', a.payment.finish_sum)
+    print('Разблокировка у клиента ', a.payment.delta)
+    print('Возврат по банку', a.payment.refunded_amount)
     print('Статус по банку ', a.payment.staus)

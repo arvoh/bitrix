@@ -49,6 +49,8 @@ class Payment:
             self.transaction = payment_details['authRefNum']
             self.holded_sum = float(payment_details['paymentAmountInfo']['approvedAmount'] / 100)
             self.finish_sum = float(payment_details['paymentAmountInfo']['depositedAmount'] / 100)
+            self.delta =self.holded_sum - self.finish_sum
+            self.refunded_amount = float(payment_details['paymentAmountInfo']['refundedAmount'] / 100)
         else:
             self.payment_status = 'error'
 
@@ -187,7 +189,7 @@ class Order:
             res = check.send_check().json()
             print(res)
             check_id = res['uuid']
-            if res['error'] != None:
+            if res['error'] is not None:
                 error_message = res['error']['text']
                 add_check_db(self.order_id,check_id, 'Приход', error_message)
             else:
@@ -200,29 +202,14 @@ class Order:
             from atol import get_ofdURL
             url = get_ofdURL('0004524074004440', a['check_number'], a['fn_mumber'], a['fpd'])
             sql = 'update u0752174_delfin_exchange.Checks ' \
-                  'set ecr_reg_number = "%s", fpd = %d,fd_number = %d,number_in_shift = %d, shift_number = %d, fn = %d, date_time = "%s", total = %f, url = "%s" ' \
-                  'where check_id = "%s"' % (a['ecr_reg_number'], a['fpd'], a['check_number'], a['check_number_in_shift'], a['shift_number'], a['fn_mumber'], a['check_date'].isoformat(), a['total'], url, check_id)
+                  'set ecr_reg_number = "%s", fpd = %d,fd_number = %d,number_in_shift = %d, ' \
+                  'shift_number = %d, fn = %d, date_time = "%s", total = %f, url = "%s" ' \
+                  'where check_id = "%s"' % (a['ecr_reg_number'], a['fpd'], a['check_number'],
+                                             a['check_number_in_shift'], a['shift_number'],
+                                             a['fn_mumber'], a['check_date'].isoformat(),
+                                             a['total'], url, check_id)
             cursor.execute(sql)
             connection.commit()
             print(res['uuid'])
         else:
             print('не пошла сумма')
-
-
-
-
-# while True:
-#     order_number = int(input('Номер заказа: '))
-#     if order_number == 0:
-#         exit()
-#
-#     order = Order(order_number)
-#     print('Сумма заказа: ', order.total)
-#     print('Сумма по банку: ', order.payment.finish_sum)
-#     sum_control = 'Совпадает' if order.total == order.payment.finish_sum else 'Не совпадает'
-#     print('Результат проверки: ', sum_control)
-#     if input('Сформировать чек') == '1':
-#         order.send_atol()
-#     #order.send_atol('sell')
-# from atol import get_check_status
-# # get_check_status('467adba8-e466-4e52-aefb-2a4a6d2213dd')
