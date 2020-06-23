@@ -106,7 +106,7 @@ while True:
             if order_details.total == position_total and position_total == order_details.payment.finish_sum:
                 order_details.send_atol()
             else:
-                sql = 'update oc_order_starta set error = 1 where ORDER_ID = %d' % order_details.order_id
+                sql = 'update `u0752174_delfin_exchange`.oc_order_starta set error = 1 where ORDER_ID = %d' % order_details.order_id
                 try:
                     bitrix.cursor.execute(sql)
                     bitrix.connection.commit()

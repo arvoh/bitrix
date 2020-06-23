@@ -165,6 +165,7 @@ class Order:
                 self.items.append(Item(product[0], product[1], product[2], product[3], product[4], product[5]))
             elif product[6] == 1:
                 self.items.append(Item(product[0], product[1], product[2], product[3], product[4], product[5], product[6], product[7], product[8], product[9]))
+        self.good = False
 
     def send_atol(self, check_type='sell'):
         from atol import Check
@@ -184,7 +185,7 @@ class Order:
                 check.add_position(item.name, item.price, item.quantity, item.total, item.NDS, item.is_comission)
             else:
                 check.add_position(item.name, item.price, item.quantity, item.total, item.NDS, item.is_comission,item.comission_name, item.comission_inn, item.comission_phone)
-        if check.get_total() == self.total:
+        if check.get_total() == self.total or self.good:
             print('Сумма сошлась')
             res = check.send_check().json()
             print(res)

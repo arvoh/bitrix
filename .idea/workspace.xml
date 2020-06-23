@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b5ec73-1fce-4989-ba21-a564119e841f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auto.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/bitrix.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/order_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Просмотр заказов — копия.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Просмотр заказов — копия.cmd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +39,32 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/auto.py" />
     <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
   </component>
-  <component name="RunManager" selected="Python.order_view">
+  <component name="RunManager" selected="Python.Формирование чека">
+    <configuration name="Формирование чека" type="PythonConfigurationType" factoryName="Python">
+      <module name="bitrix" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\d.romanenko\AppData\Local\Programs\Python\Python38\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/auto.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="buh_report" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="bitrix" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -103,9 +129,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.orders" />
       <item itemvalue="Python.buh_report" />
       <item itemvalue="Python.order_view" />
+      <item itemvalue="Python.Формирование чека" />
+      <item itemvalue="Python.orders" />
     </list>
   </component>
   <component name="ServiceViewManager">
@@ -184,7 +211,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -197,10 +226,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="First Beta" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592380572643">
+    <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592886131450">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380572643" />
+    <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886131450" />
     <state x="614" y="95" key="CommitChangelistDialog2" timestamp="1592383167220">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
@@ -209,50 +238,54 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="92" y="92" width="1736" height="815" key="DiffContextDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592383148443" />
-    <state x="740" y="255" key="FileChooserDialogImpl" timestamp="1592380983229">
+    <state x="740" y="255" key="FileChooserDialogImpl" timestamp="1592886112905">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="740" y="255" key="FileChooserDialogImpl/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380983229" />
+    <state x="740" y="255" key="FileChooserDialogImpl/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886112905" />
     <state x="842" y="394" width="260" height="211" key="Github.ShareDialog" timestamp="1592381006397">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="842" y="394" width="260" height="211" key="Github.ShareDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592381006397" />
-    <state width="1899" height="268" key="GridCell.Tab.0.bottom" timestamp="1592383091590">
+    <state width="1899" height="268" key="GridCell.Tab.0.bottom" timestamp="1592886624963">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.bottom/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592383091590" />
-    <state width="1899" height="268" key="GridCell.Tab.0.center" timestamp="1592383091590">
+    <state width="1899" height="268" key="GridCell.Tab.0.bottom/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886624963" />
+    <state width="1899" height="268" key="GridCell.Tab.0.center" timestamp="1592886624963">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.center/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592383091590" />
-    <state width="1899" height="268" key="GridCell.Tab.0.left" timestamp="1592383091590">
+    <state width="1899" height="268" key="GridCell.Tab.0.center/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886624963" />
+    <state width="1899" height="268" key="GridCell.Tab.0.left" timestamp="1592886624963">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.left/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592383091590" />
-    <state width="1899" height="268" key="GridCell.Tab.0.right" timestamp="1592383091590">
+    <state width="1899" height="268" key="GridCell.Tab.0.left/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886624963" />
+    <state width="1899" height="268" key="GridCell.Tab.0.right" timestamp="1592886624963">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.right/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592383091590" />
-    <state width="1899" height="331" key="GridCell.Tab.1.bottom" timestamp="1592382721796">
+    <state width="1899" height="268" key="GridCell.Tab.0.right/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886624963" />
+    <state width="1899" height="331" key="GridCell.Tab.1.bottom" timestamp="1592396741050">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="331" key="GridCell.Tab.1.bottom/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592382721796" />
-    <state width="1899" height="331" key="GridCell.Tab.1.center" timestamp="1592382721796">
+    <state width="1899" height="331" key="GridCell.Tab.1.bottom/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592396741050" />
+    <state width="1899" height="331" key="GridCell.Tab.1.center" timestamp="1592396741047">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="331" key="GridCell.Tab.1.center/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592382721796" />
-    <state width="1899" height="331" key="GridCell.Tab.1.left" timestamp="1592382721796">
+    <state width="1899" height="331" key="GridCell.Tab.1.center/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592396741047" />
+    <state width="1899" height="331" key="GridCell.Tab.1.left" timestamp="1592396741047">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="331" key="GridCell.Tab.1.left/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592382721796" />
-    <state width="1899" height="331" key="GridCell.Tab.1.right" timestamp="1592382721796">
+    <state width="1899" height="331" key="GridCell.Tab.1.left/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592396741047" />
+    <state width="1899" height="331" key="GridCell.Tab.1.right" timestamp="1592396741047">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="331" key="GridCell.Tab.1.right/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592382721796" />
+    <state width="1899" height="331" key="GridCell.Tab.1.right/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592396741047" />
     <state x="461" y="143" key="SettingsEditor" timestamp="1592380886798">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="461" y="143" key="SettingsEditor/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380886798" />
+    <state x="552" y="233" key="Vcs.Push.Dialog.v2" timestamp="1592383986717">
+      <screen x="0" y="0" width="1920" height="999" />
+    </state>
+    <state x="552" y="233" key="Vcs.Push.Dialog.v2/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592383986717" />
     <state x="92" y="92" width="1736" height="815" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592369445497">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
@@ -265,16 +298,5 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="769" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592370757767" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/bitrix.py</url>
-          <line>45</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
