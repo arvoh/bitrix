@@ -98,12 +98,13 @@ while True:
         print('%-20s%s' % ('Переплата', delta))
 
         if delta > 0:
-            if input('Провести возврат на сумму %.2f?: ' % delta) == 'Y':
-                import rbs
-                res = rbs.refund_order(order_details.sber_id, delta)
-                print(res.content)
+  #          if input('Провести возврат на сумму %.2f?: ' % delta) == 'Y':
+            import rbs
+            res = rbs.refund_order(order_details.sber_id, delta)
+            order_details.good = True
+            print(res.content)
         if check_count == 0:
-            if order_details.total == position_total and position_total == order_details.payment.finish_sum:
+            if (order_details.total == position_total and position_total == order_details.payment.finish_sum) or order_details.good:
                 order_details.send_atol()
             else:
                 sql = 'update `u0752174_delfin_exchange`.oc_order_starta set error = 1 where ORDER_ID = %d' % order_details.order_id

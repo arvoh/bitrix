@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e7b5ec73-1fce-4989-ba21-a564119e841f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auto.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bitrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/bitrix.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orders.py" beforeDir="false" afterPath="$PROJECT_DIR$/orders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Просмотр заказов — копия.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/Просмотр заказов — копия.cmd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +38,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/auto.py" />
     <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
   </component>
-  <component name="RunManager" selected="Python.Формирование чека">
+  <component name="RunManager" selected="Python.orders">
     <configuration name="Формирование чека" type="PythonConfigurationType" factoryName="Python">
       <module name="bitrix" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -193,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592381587558</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Добален параметр good - отключающий проверку суммы">
+      <created>1592886984666</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1592886984666</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -223,17 +225,18 @@
     <MESSAGE value="First create" />
     <MESSAGE value="Second create" />
     <MESSAGE value="First Beta" />
-    <option name="LAST_COMMIT_MESSAGE" value="First Beta" />
+    <MESSAGE value="Добален параметр good - отключающий проверку суммы" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добален параметр good - отключающий проверку суммы" />
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592886131450">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="414" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886131450" />
-    <state x="614" y="95" key="CommitChangelistDialog2" timestamp="1592383167220">
+    <state x="614" y="95" key="CommitChangelistDialog2" timestamp="1592886980512">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="614" y="95" key="CommitChangelistDialog2/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592383167220" />
+    <state x="614" y="95" key="CommitChangelistDialog2/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886980512" />
     <state x="92" y="92" width="1736" height="815" key="DiffContextDialog" timestamp="1592383148443">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
@@ -246,22 +249,22 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="842" y="394" width="260" height="211" key="Github.ShareDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592381006397" />
-    <state width="1899" height="268" key="GridCell.Tab.0.bottom" timestamp="1592886624963">
+    <state width="1899" height="268" key="GridCell.Tab.0.bottom" timestamp="1593172374877">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.bottom/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886624963" />
-    <state width="1899" height="268" key="GridCell.Tab.0.center" timestamp="1592886624963">
+    <state width="1899" height="268" key="GridCell.Tab.0.bottom/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1593172374877" />
+    <state width="1899" height="268" key="GridCell.Tab.0.center" timestamp="1593172374865">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.center/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886624963" />
-    <state width="1899" height="268" key="GridCell.Tab.0.left" timestamp="1592886624963">
+    <state width="1899" height="268" key="GridCell.Tab.0.center/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1593172374865" />
+    <state width="1899" height="268" key="GridCell.Tab.0.left" timestamp="1593172374850">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.left/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886624963" />
-    <state width="1899" height="268" key="GridCell.Tab.0.right" timestamp="1592886624963">
+    <state width="1899" height="268" key="GridCell.Tab.0.left/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1593172374850" />
+    <state width="1899" height="268" key="GridCell.Tab.0.right" timestamp="1593172374865">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state width="1899" height="268" key="GridCell.Tab.0.right/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886624963" />
+    <state width="1899" height="268" key="GridCell.Tab.0.right/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1593172374865" />
     <state width="1899" height="331" key="GridCell.Tab.1.bottom" timestamp="1592396741050">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
@@ -282,18 +285,18 @@
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="461" y="143" key="SettingsEditor/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592380886798" />
-    <state x="552" y="233" key="Vcs.Push.Dialog.v2" timestamp="1592383986717">
+    <state x="552" y="233" key="Vcs.Push.Dialog.v2" timestamp="1592886992910">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="552" y="233" key="Vcs.Push.Dialog.v2/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592383986717" />
+    <state x="552" y="233" key="Vcs.Push.Dialog.v2/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592886992910" />
     <state x="92" y="92" width="1736" height="815" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1592369445497">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
     <state x="92" y="92" width="1736" height="815" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592369445497" />
-    <state x="655" y="324" key="com.intellij.ide.util.TipDialog" timestamp="1592370265689">
+    <state x="655" y="324" key="com.intellij.ide.util.TipDialog" timestamp="1593061501225">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
-    <state x="655" y="324" key="com.intellij.ide.util.TipDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1592370265689" />
+    <state x="655" y="324" key="com.intellij.ide.util.TipDialog/0.0.1920.999/1920.0.1920.999@0.0.1920.999" timestamp="1593061501225" />
     <state x="769" y="417" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592370757767">
       <screen x="0" y="0" width="1920" height="999" />
     </state>
