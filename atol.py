@@ -184,7 +184,7 @@ class Check:
         total = 0
         for i in self.items:
             total += i.sum
-        return total
+        return round(total, 2)
 
     def send_check(self):
         total = 0

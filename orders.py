@@ -60,6 +60,7 @@ while True:
             print('%-4d%-70s%-10.2f%-10.2f%-10.2f%-5s' % (counter, i.name, i.quantity, i.price, i.total, str(i.is_change)))
             counter +=1
             position_total += i.total
+        position_total = round(position_total,2)
         print('=' * 40, ' Оплаты ' + '=' * 40)
         payment_state = order_details.payment.staus
         if payment_state == 'Выполнено':
