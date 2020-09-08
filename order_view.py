@@ -17,3 +17,5 @@ while True:
     print('Разблокировка у клиента ', a.payment.delta)
     print('Возврат по банку', a.payment.refunded_amount)
     print('Статус по банку ', a.payment.staus)
+    print('Region ', a.region)
+    print('Store ', a.store)

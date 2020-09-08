@@ -84,10 +84,12 @@ if delta > 0:
 
         res = rbs.refund_order(order_details.sber_id, delta)
         print(res.content)
-if check_count == 0:
-    if input('Сформировать чек? ') == 'Y':
-        if input('Отключить контроль суммы? ') == 'Y':
-            order_details.good = True
-        order_details.send_atol()
+
+if input('Сформировать чек? ') == 'Y':
+    type_of_check = 'sell_refund' if  input('Тип чека:\n1-Приход\n2-Возрат\n?>') == '2' else 'sell'
+    if input('Отключить контроль суммы? ') == 'Y':
+        order_details.good = True
+    print(type_of_check)
+    order_details.send_atol(type_of_check)
 
 order_details = None

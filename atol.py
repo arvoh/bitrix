@@ -3,6 +3,29 @@ import datetime
 debug = False
 
 
+def mark_to_tag(mark_code_raw):
+    for i in ('(21)', '(01)'):
+        mark_code_raw = mark_code_raw.replace(i, '')
+    prefix = '0005'
+    GTIN = int(mark_code_raw[0:14])
+    GTIN_hex = str((hex(GTIN)).upper()[2:])
+#    print('Length of GTIN', len(GTIN_hex))
+    if len(GTIN_hex) <12:
+        GTIN_hex = '0' * (12 - len(GTIN_hex)) + GTIN_hex
+    GTIN_hex = prefix + GTIN_hex
+    GTIN_hex = ' '.join(GTIN_hex[i:i + 2] for i in range(0, len(GTIN_hex), 2))
+    mark_hex = ''
+    mark = mark_code_raw[14:21]
+    for i in mark:
+        mark_hex = mark_hex + hex(ord(i))[2:]
+    mark_hex = ' '.join(mark_hex[i:i + 2] for i in range(0, len(mark_hex), 2))
+#    print(mark_hex)
+    mark_to_send = GTIN_hex + ' ' + mark_hex
+#    print('GTIN: ', GTIN)
+#    print(GTIN_hex)
+#    print('Mar to send: ', mark_to_send)
+    return mark_to_send
+
 def get_ofdURL(register_number, fn_number, doc_number, fpd):
     check_url = 'https://check.ofd.ru/rec/7111007621/%s/%s/%s/%s' % (register_number, fn_number, doc_number, fpd)
     return check_url
@@ -64,7 +87,6 @@ def get_check_status(id):
 
 
 
-
 def auth(login, password):
     extended_url = 'getToken'
     req = {
@@ -93,6 +115,7 @@ class Item:
         self.comission_phone = ''
         self.comission_name = ''
         self.comission_inn = ''
+        self.mark_row = ''
 
     def json(self):
         item = {
@@ -102,10 +125,12 @@ class Item:
             'sum': self.sum,
             'payment_method': self.payment_method,
             'payment_object': self.payment_object,
-            'vat':{
+            'vat': {
                 'type': self.vat
             }
         }
+        if self.mark_row != '':
+            item['nomenclature_code'] = mark_to_tag(self.mark_row)
         if self.is_comissioner:
             item['agent_info'] = {'type': 'commission_agent'}
 
@@ -125,7 +150,7 @@ class Check:
         self.clent_mail = ''
         self.order_number = 0
         self.extended_url = '%s/%s?token=%s' % (group_code, self._operation, self.token)
-        self.organization_email = 'd.romanenko@fguppromservis.ru'
+        self.organization_email = 'info@fguppromservis.ru'
         self.items = list()
         self.client_name = ''
 
@@ -139,18 +164,19 @@ class Check:
         self.client_name = name
 
     def add_position(self, name, price, quantity, total, nds, is_comissioner = False, comission_name='',
-                     comission_inn='', commission_phone=''):
+                     comission_inn='', commission_phone='', mark_code=''):
         item = Item()
         item.name = name
         item.price = price
+        item.mark_row = mark_code
         item.quantity = quantity
         item.sum = total
-        item.vat = 'vat'+str(nds)
+        item.vat = 'vat' + str(nds)
         item.is_comissioner = is_comissioner
         if is_comissioner == 1:
             # item.payment_object = "service" Убрано по договорённости с Жарковой С.Л.
-            item.comission_name = comission_name
-            item.comission_inn = comission_inn
+            item.comission_name = str(comission_name).strip()
+            item.comission_inn = comission_inn.strip()
             item.comission_phone = commission_phone
         self.items.append(item)
 
@@ -165,11 +191,8 @@ class Check:
         vat0 = 0
         vat10 = 0
         vat20 = 0
-
-
         self.main_dict['external_id'] = self.order_number
         recept = {}
-
         recept['client'] = {
             'email': self.clent_mail,
             'name': self.client_name
@@ -202,22 +225,23 @@ class Check:
             'sum': total
         }]
         self.main_dict['receipt']['total'] = total
-        self.main_dict['receipt']['vats'] = list()
-        # if vat0 > 0:
-        #     self.main_dict['recept']['vats']={'type':'vat0', 'sum' : vat0}
-        if vat10 > 0:
-            self.main_dict['receipt']['vats'].append({'type' : 'vat10', 'sum' : round(vat10 / 11, 2)})
-        if vat20 > 0:
-            self.main_dict['receipt']['vats'].append({'type': 'vat20', 'sum': round(vat20 / 6, 2)})
+        if vat10 > 0 or vat20 > 0:
+            self.main_dict['receipt']['vats'] = list()
+#            if vat0 > 0:
+#                self.main_dict['receipt']['vats'].append({'type':'vat0', 'sum' : 0})
+            if vat10 > 0:
+                self.main_dict['receipt']['vats'].append({'type': 'vat10', 'sum' : round(vat10 / 11, 2)})
+            if vat20 > 0:
+                self.main_dict['receipt']['vats'].append({'type': 'vat20', 'sum': round(vat20 / 6, 2)})
         print(json.dumps(self.main_dict))
+        self.extended_url = '%s/%s?token=%s' % (group_code, self._operation, self.token)
         res = send_atol(self.extended_url, json.dumps(self.main_dict))
-        print(res)
+        print(res.json())
         if debug:
             print(json.dumps(self.main_dict))
 
         return res
-        if debug:
-            print(json.loads(res.content))
+
 
 
 

@@ -23,14 +23,21 @@ def add_check_db(order_id, check_id, type = 'Приход', error = ''):
 
 
 class Item:
-    def __init__(self, name, price, quantity, total, NDS, is_change, is_comission=0, comission_phone='', comission_name='',  commission_inn=''):
+    def __init__(self, name, price, quantity, total, NDS, is_change, is_comission=0, comission_phone='', comission_name='',  commission_inn='', mark = ''):
         self.name = name
         self.price = float(price)
         self.quantity = quantity
+        #Проверка весового товара
+        from math import modf
+        if modf(self.quantity)[0] != 0:
+            self.name = "%s %.2f кг." % (self.name, quantity)
+            self.quantity = 1
+            self.price = total
         self.total = float(total)
         self.NDS = int(NDS)
         self.is_change = is_change
         self.is_comission = is_comission
+        self.mark_row = mark
         if self.is_comission == 1:
             self.comission_inn = commission_inn
             # self.comission_phone = list()
@@ -142,20 +149,23 @@ class Order:
         except Exception as e:
             raise Exception('Не удалось выполнить запрос\n%s\n%s' %(sql,e))
         check_from_db = cursor.fetchall()
-        for i in check_from_db:
-            check_dict = {
-                'type_of_check': i[0],
-                'fd_number': i[2],
-                'number_in_shift': i[3],
-                'shift_number': i[4],
-                'date_time': i[5],
-                'total': float(i[6])
-            }
-            self.checks.append(Recept(**check_dict))
+        try:
+            for i in check_from_db:
+                check_dict = {
+                    'type_of_check': i[0],
+                    'fd_number': i[2],
+                    'number_in_shift': i[3],
+                    'shift_number': i[4],
+                    'date_time': i[5],
+                    'total': float(i[6])
+                }
+                self.checks.append(Recept(**check_dict))
+        except Exception as e:
+            print('Ошибка')
 
         # Получение товаров из промежуточной БД
-        sql = 'SELECT NAME,PRICE, QUANTITY, PRODUCT_SUM, NDS, ISCHANGE, commission, comissioner_phone,comissioner_name, comissioner_inn  ' \
-              'FROM u0752174_delfin_exchange.oc_order_products_starta where quantity > 0 and order_id = %d' % self.order_id
+        sql = 'SELECT NAME,PRICE, QUANTITY, PRODUCT_SUM, NDS, ISCHANGE, commission, comissioner_phone,comissioner_name, comissioner_inn, ORDER_PRODUCT_GUID  ' \
+              'FROM u0752174_delfin_exchange.oc_order_products_starta where quantity > 0 and order_id = %d and ischange = 1' % self.order_id
 #        print(sql)
         cursor.execute(sql)
         res = cursor.fetchall()
@@ -164,7 +174,16 @@ class Order:
             if product[6] == 0 or product[6] == None:
                 self.items.append(Item(product[0], product[1], product[2], product[3], product[4], product[5]))
             elif product[6] == 1:
-                self.items.append(Item(product[0], product[1], product[2], product[3], product[4], product[5], product[6], product[7], product[8], product[9]))
+                if product[10] != '':
+                    sql = 'select MARK, QUANTITY from u0752174_delfin_exchange.oc_order_marks_starta where ORDER_PRODUCT_GUID = "%s"' % product[10]
+                    cursor.execute(sql)
+                    marks = cursor.fetchall()
+                    for z in marks:
+                        self.items.append(Item(product[0], product[1], z[1],product[1] * z[1] , product[4], product[5], product[6], product[7], product[8], product[9], mark=z[0]))
+                else:
+                    self.items.append(
+                        Item(product[0], product[1], product[2], product[3], product[4], product[5], product[6],
+                             product[7], product[8], product[9]))
         self.good = False
 
     def send_atol(self, check_type='sell'):
@@ -173,7 +192,7 @@ class Order:
         check.set_operation(check_type)
         check.order_number = str(self.order_id) + '-' + check._operation
         if test:
-            check.clent_mail = 'd.romanenko@fguppromservis.ru'
+            check.clent_mail = 'info@fguppromservis.ru'
         else:
             check.clent_mail = self.email
         check.client_name = '%s (Заказ № %s)' % (self.FIO, self.order_id)
@@ -184,7 +203,7 @@ class Order:
             if not item.is_comission:
                 check.add_position(item.name, item.price, item.quantity, item.total, item.NDS, item.is_comission)
             else:
-                check.add_position(item.name, item.price, item.quantity, item.total, item.NDS, item.is_comission,item.comission_name, item.comission_inn, item.comission_phone)
+                check.add_position(item.name, item.price, item.quantity, item.total, item.NDS, item.is_comission,item.comission_name, item.comission_inn, item.comission_phone, item.mark_row)
         if check.get_total() == self.total or self.good:
             print('Сумма сошлась')
             res = check.send_check().json()
@@ -192,11 +211,11 @@ class Order:
             check_id = res['uuid']
             if res['error'] is not None:
                 error_message = res['error']['text']
-                add_check_db(self.order_id,check_id, 'Приход', error_message)
+                add_check_db(self.order_id, check_id, 'Приход', error_message)
             else:
                 add_check_db(self.order_id, check_id)
             from time import sleep
-            sleep(15)
+            sleep(10)
             from atol import get_check_status
             a = get_check_status(check_id)
             print(a)

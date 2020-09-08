@@ -30,10 +30,13 @@ while True:
 
         bitrix.cursor.execute(sql)
         orders = bitrix.cursor.fetchall()
+        len_of_q = len(orders)
+        current_cycle = 1
     except:
         print(Fore.RED + 'Не верно указан номер заказа' + Style.RESET_ALL)
     for i in orders:
         order_number = i[0]
+
         if order_number == 0:
             exit()
         try:
@@ -100,12 +103,14 @@ while True:
         if delta > 0:
   #          if input('Провести возврат на сумму %.2f?: ' % delta) == 'Y':
             import rbs
-            res = rbs.refund_order(order_details.sber_id, delta)
+            #res = rbs.refund_order(order_details.sber_id, delta)
             order_details.good = True
-            print(res.content)
         if check_count == 0:
             if (order_details.total == position_total and position_total == order_details.payment.finish_sum) or order_details.good:
-                order_details.send_atol()
+                try:
+                    order_details.send_atol()
+                except:
+                    pass
             else:
                 sql = 'update `u0752174_delfin_exchange`.oc_order_starta set error = 1 where ORDER_ID = %d' % order_details.order_id
                 try:
@@ -114,4 +119,6 @@ while True:
                 except Exception as e:
                     print('Не удалось выполнить операцию\n', e)
         order_details = None
-        sleep(30)
+        print("Обработан заказ %d/%d" % (current_cycle, len_of_q))
+        current_cycle +=1
+        sleep(20)
