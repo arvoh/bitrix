@@ -86,10 +86,16 @@ if delta > 0:
         print(res.content)
 
 if input('Сформировать чек? ') == 'Y':
-    type_of_check = 'sell_refund' if  input('Тип чека:\n1-Приход\n2-Возрат\n?>') == '2' else 'sell'
-    if input('Отключить контроль суммы? ') == 'Y':
-        order_details.good = True
+    #type_of_check = 'sell_refund' if  input('Тип чека:\n1-Приход\n2-Возрат\n?>') == '2' else 'sell'
+    type_of_check = 'sell_refund'
+    #if input('Отключить контроль суммы? ') == 'Y':
+    #    order_details.good = True
+    #if input('Корректировать External_id')=='Y':
+    #    correct = True
+    correct = True
+    # else:
+    #     correct = False
     print(type_of_check)
-    order_details.send_atol(type_of_check)
+    order_details.send_atol(type_of_check, correct)
 
 order_details = None

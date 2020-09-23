@@ -155,7 +155,7 @@ class Check:
         self.client_name = ''
 
     def set_operation(self, operation):
-        if operation  in ('sell', 'sell_refund'):
+        if operation in ('sell', 'sell_refund'):
             self._operation = operation
         else:
             raise Exception('Не допустимый вид чека')
@@ -191,7 +191,11 @@ class Check:
         vat0 = 0
         vat10 = 0
         vat20 = 0
-        self.main_dict['external_id'] = self.order_number
+
+        if len(self.client_name) > 200:
+            self.client_name = 'Не указано'
+
+        self.main_dict['external_id'] = self.order_number + '**'
         recept = {}
         recept['client'] = {
             'email': self.clent_mail,
@@ -230,9 +234,9 @@ class Check:
 #            if vat0 > 0:
 #                self.main_dict['receipt']['vats'].append({'type':'vat0', 'sum' : 0})
             if vat10 > 0:
-                self.main_dict['receipt']['vats'].append({'type': 'vat10', 'sum' : round(vat10 / 11, 2)})
-            if vat20 > 0:
-                self.main_dict['receipt']['vats'].append({'type': 'vat20', 'sum': round(vat20 / 6, 2)})
+                self.main_dict['receipt']['vats'].append({'type': 'vat10', 'sum': round(vat10 / 11, 2)})
+            #if vat20 > 0:
+            self.main_dict['receipt']['vats'].append({'type': 'vat20', 'sum':round(vat20 / 6, 2)})
         print(json.dumps(self.main_dict))
         self.extended_url = '%s/%s?token=%s' % (group_code, self._operation, self.token)
         res = send_atol(self.extended_url, json.dumps(self.main_dict))
@@ -258,4 +262,4 @@ class Check:
 #
 
 # res = a.send_check()
-# get_check_status('467adba8-e466-4e52-aefb-2a4a6d2213dd')
+get_check_status('467adba8-e466-4e52-aefb-2a4a6d2213dd')

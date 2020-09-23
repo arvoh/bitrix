@@ -186,11 +186,12 @@ class Order:
                              product[7], product[8], product[9]))
         self.good = False
 
-    def send_atol(self, check_type='sell'):
+    def send_atol(self, check_type='sell', correct=False):
         from atol import Check
         check = Check()
         check.set_operation(check_type)
-        check.order_number = str(self.order_id) + '-' + check._operation
+        postfix = 'correct' if correct else ''
+        check.order_number = str(self.order_id) + '-' + check._operation + postfix
         if test:
             check.clent_mail = 'info@fguppromservis.ru'
         else:
@@ -207,22 +208,21 @@ class Order:
         if check.get_total() == self.total or self.good:
             print('Сумма сошлась')
             res = check.send_check().json()
-            print(res)
             check_id = res['uuid']
             if res['error'] is not None:
                 error_message = res['error']['text']
-                add_check_db(self.order_id, check_id, 'Приход', error_message)
+                add_check_db(self.order_id, check_id, check_type, error_message)
             else:
-                add_check_db(self.order_id, check_id)
+                add_check_db(self.order_id, check_id, check_type)
             from time import sleep
             sleep(10)
             from atol import get_check_status
             a = get_check_status(check_id)
             print(a)
             from atol import get_ofdURL
-            url = get_ofdURL('0004524074004440', a['check_number'], a['fn_mumber'], a['fpd'])
+            url = get_ofdURL('0004524074004440', a['fn_mumber'], a['check_number'], a['fpd'])
             sql = 'update u0752174_delfin_exchange.Checks ' \
-                  'set ecr_reg_number = "%s", fpd = %d,fd_number = %d,number_in_shift = %d, ' \
+                  'set ecr_reg_number = "%s", fpd = "%d",fd_number = %d,number_in_shift = %d, ' \
                   'shift_number = %d, fn = %d, date_time = "%s", total = %f, url = "%s" ' \
                   'where check_id = "%s"' % (a['ecr_reg_number'], a['fpd'], a['check_number'],
                                              a['check_number_in_shift'], a['shift_number'],

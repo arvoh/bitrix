@@ -1,8 +1,8 @@
 from colorama import Fore, Back, Style, init
 import bitrix
-from datetime import date
+from datetime import date, datetime, timedelta
 from time import sleep
-
+import pymysql
 def print_red(*args):
     print(Fore.RED, *args, Style.RESET_ALL)
 def print_yellow(*args):
@@ -10,8 +10,13 @@ def print_yellow(*args):
 def log(message):
     f = open('closed_%s.log' % date.isoformat(), 'a', encoding='utf-8')
 
+
+bitrix.connection = None
 init()
+
+
 while True:
+    connection_close = True
     try:
         sql = '''
         select 
@@ -27,6 +32,16 @@ while True:
         select order_id from u0752174_delfin_exchange.Checks
     )
         '''
+
+        try:
+            if connection_close:
+                bitrix.connection = pymysql.connect(**bitrix.settings)
+                bitrix.cursor = bitrix.connection.cursor()
+                connection_time = datetime.now()
+                connection_close = False
+        except Exception as error:
+            print('Не удалось подключиться к БД\nОтвет сервера: ', error)
+
 
         bitrix.cursor.execute(sql)
         orders = bitrix.cursor.fetchall()
@@ -110,8 +125,8 @@ while True:
             if (order_details.total == position_total and position_total == order_details.payment.finish_sum) or order_details.good:
                 try:
                     order_details.send_atol()
-                except:
-                    pass
+                except Exception as e:
+                    print_red(e)
             else:
                 sql = 'update `u0752174_delfin_exchange`.oc_order_starta set error = 1 where ORDER_ID = %d' % order_details.order_id
                 try:
@@ -122,4 +137,8 @@ while True:
         order_details = None
         print("Обработан заказ %d/%d" % (current_cycle, len_of_q))
         current_cycle +=1
-        sleep(20)
+
+        sleep(5)
+    if datetime.now() - timedelta(hours=5) > connection_time:
+        bitrix.connection.close()
+        connection_close = True

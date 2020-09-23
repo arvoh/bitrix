@@ -71,7 +71,7 @@ def get_order_extended(id_sb):
 
     zap = requests.get(_URL)
     res = zap.json()
-    print (res)
+    # print (res)
     return res
 
 def get_order_details(order_id_sb):
